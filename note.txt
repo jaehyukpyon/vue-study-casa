@@ -1,0 +1,2 @@
+{{ }} & v-bind > you can execute simple JS expression.
+v-on:event > event binding 
