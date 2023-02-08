@@ -1,2 +1,11 @@
 {{ }} & v-bind > you can execute simple JS expression.
 v-on:event > event binding 
+
+v-on:keyup.enter
+v-on:click.right
+v-on:input
+
+{{ method1() }} >> 이런식으로 하면 method1이 항상 실행된다. 언제? html페이지에 변화가 생길때!
+
+
+Watcher 즉 watch: { } 는 computed property도 감시 가능!

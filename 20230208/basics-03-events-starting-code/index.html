@@ -22,11 +22,20 @@
         <!-- add() or add works just fine :) -->
         <button v-on:click="add(5)">Add</button>
 
-        <!-- v-on:clock="counter = counter - 1" -->
-        <button v-on:click="reduce(5)">Reduce</button>
+        <!-- v-on:click="counter = counter - 1" -->
+        <button v-on:click.right="reduce(5)">Reduce</button>
+
+        <p v-once>Starting counter: {{ counter }}</p> <!--Add나 Reduce 버튼을 클릭해도 이 라인의 p 태그 안의 counter 값은 변하지 않고 초기값 그대로 유지된다.-->
+        <!--v-once tells Vue that any dynamic data bindings, like this interpolation({{ }}) here on this element(<p>) should only be evaluated once!-->
+
         <p>Result: {{ counter }}</p>
-        <input type="text" v-on:input="setName($event, 'Pyon')">
-        <p>Your Name: {{ name }}</p>
+        <input type="text" v-on:input="setName($event, 'Pyon')" v-on:keyup.enter="confirmInput">
+        <p>Your Name: {{ confirmedName }}</p>
+
+        <form v-on:submit.prevent="submitForm">
+            <input type="text">
+            <button>Sign up</button>
+        </form>
     </section>
 </body>
 
