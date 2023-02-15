@@ -15,6 +15,7 @@
         <strong>Email: {{ emailAddress }}</strong>
       </li>
     </ul>
+    <button @click="$emit('delete', id)">delete</button>
     <!-- <h4>test: {{ test }}</h4> -->
   </li>
 </template>
@@ -66,6 +67,9 @@ export default {
         return false;
       }
     },
+    'delete': function() {
+      return true;
+    },
   },
   data() {
     return {
@@ -91,7 +95,10 @@ export default {
       console.log('toggleFavorite');
       //this.friendIsFavorite = !this.friendIsFavorite;
       this.$emit('toggle-favorite', this.id);
-    }
+    },
+    // deleteFriend() {
+    //   this.$emit('delete', this.id);
+    // }
   },
   beforeUpdate() {
     console.log('FriendContact.vue beforeUpdate');
