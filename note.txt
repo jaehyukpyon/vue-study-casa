@@ -17,3 +17,15 @@ form 관련
 
 
 fetch returns an object
+
+
+this.$router.push('/teams');
+this.$router.back();
+this.$router.forward();
+
+url이 바뀌면 $route가 변경된다.
+- it holds the latest information about th eloaded route, and it will update when the URL changes.
+- So $route object will always hold the latest parameter, for example.
+- and therefore, you can add a WATCHER...
+
+

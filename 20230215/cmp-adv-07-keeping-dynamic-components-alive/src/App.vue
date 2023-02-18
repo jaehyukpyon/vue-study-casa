@@ -14,7 +14,7 @@
 
     <!-- keep-alive 사용 시 '맨 처음'에 해당 컴포넌트가 화면에 출력될 때만 created, mounted실행된다. 한 번 출력된 이후에는 재실행X-->
       <keep-alive>
-        <component :is="selectedComponent"></component>
+        <component :is="selectedComponent" :testValue="testValue" @testEvent="handleEvent"></component>
       </keep-alive>
   </div>
 </template>
@@ -41,12 +41,16 @@ export default {
         description: "Site owner and admin",
         role: "admin",
       },
+      testValue: 'testValue!',
     };
   },
   methods: {
     setSelectedComponent(cmp) {
       this.selectedComponent = cmp;
     },
+    handleEvent() {
+      console.log('handleEvent from App.vue')
+    }
   },
 };
 </script>

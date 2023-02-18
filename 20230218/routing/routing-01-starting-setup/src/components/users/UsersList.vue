@@ -1,7 +1,15 @@
 <template>
-  <ul>
-    <user-item v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></user-item>
-  </ul>
+  <div>
+    <button @click="confirmInput">Confirm!</button>
+    <ul>
+      <user-item
+        v-for="user in users"
+        :key="user.id"
+        :name="user.fullName"
+        :role="user.role"
+      ></user-item>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -12,6 +20,18 @@ export default {
     UserItem,
   },
   inject: ['users'],
+  methods: {
+    confirmInput() {
+      console.log('confirmInput');
+      this.$router.push('/teams'); // localhost:8081/teams로 이동한다.
+    },
+  },
+  created() {
+    console.log('UsersList - created...');
+  },
+  mounted() {
+    console.log('UsersList - mounted...');
+  },
 };
 </script>
 

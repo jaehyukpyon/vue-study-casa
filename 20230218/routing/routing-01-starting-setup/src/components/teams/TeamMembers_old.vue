@@ -19,7 +19,6 @@ import UserItem from '../users/UserItem.vue';
 
 export default {
   inject: ['users', 'teams'],
-  props: ['teamId'],
   components: {
     UserItem,
   },
@@ -35,14 +34,13 @@ export default {
     };
   },
   methods: {
-    loadTeamMembers(teamId) {
+    loadTeamMembers(route) {
       console.log('this.$route.path >> ' + this.$route.path);
 
-      //const teamId = route.params.teamId;
+      const teamId = route.params.teamId;
       const selectedTeam = this.teams.find((team) => team.id === teamId);
-      console.log('selectedTeam: ' + selectedTeam); // undefined
 
-      const members = selectedTeam.members; 
+      const members = selectedTeam.members; // members에는 배열로 해당 팀에 소속된 member의 id가(u1, u2...) 저장 돼 있음.
       const selectedMembers = [];
       for (const member of members) {
         const selectedUser = this.users.find((user) => user.id === member);
@@ -54,13 +52,11 @@ export default {
   },
   created() {
     console.log('TeamMembers - created');
-    this.loadTeamMembers(this.teamId);
-
-    console.log(this.$route.query); // {name: 'jaehyukpyon', order: 'asc'}
+    this.loadTeamMembers(this.$route);
   },
   watch: {
-    teamId(newRoute) {
-      console.log('teamId - watch!!!!');
+    $route(newRoute) {
+      console.log('$route - watch!!!!');
       this.loadTeamMembers(newRoute);
     },
   },
