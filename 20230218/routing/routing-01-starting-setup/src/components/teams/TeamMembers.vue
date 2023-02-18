@@ -64,6 +64,13 @@ export default {
       this.loadTeamMembers(newRoute);
     },
   },
+  beforeRouteUpdate(to, from, next) {
+    // 새로고침할 때는 실행 X
+    console.log('TeamMember beforeRouteUpdate started@@@@...');
+    console.log(to, from);
+    next();
+    console.log('@@@@TeamMember beforeRouteUpdate end...');
+  }
 };
 </script>
 

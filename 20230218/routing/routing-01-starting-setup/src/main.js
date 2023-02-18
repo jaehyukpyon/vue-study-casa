@@ -42,7 +42,16 @@ const router = createRouter({
       components: {
         default: UsersList,
         footer: UsersFooter,
-      }
+      },
+      beforeEnter(to, from, next) {
+        // '라우터 구성 수준 레벨'
+        // global beforeeach 실행 다 되고 난 후 이게 실행됨.
+        // 만약 global beforeeach에서 next(false)로 막아버린다면, 여기 실행 X.
+        console.log('Users beforeEnter');
+        console.log(to, from);
+        next();
+        console.log('Users beforeEnter ends =-=-=-=-=-');
+      },
     },
     // {
     //   path: '/teams/:teamId',

@@ -32,6 +32,15 @@ export default {
   mounted() {
     console.log('UsersList - mounted...');
   },
+  beforeRouteEnter(to, from, next) {
+    // 이 메서드가 라우터 설정 파일(main.js)에 실행된 모든 네비게이션 가드가 실행된 이후에 실행된다.
+    // 즉 전역 가드 -> 라우터 구성 수준레벨 -> 컴포넌트 레벨 
+    console.log('UsersList beforeRouterEnter!!!!!!!!!');
+    console.log(to, from, next);
+    next();
+    console.log('UsersList beforeRouterEnter!!!!!!!!!-----------------');
+    // 만약 여기에서 next()로 허용했다면, 그 다음에 created() -> mounted()가 실행됨.
+  },
 };
 </script>
 
