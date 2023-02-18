@@ -9,3 +9,11 @@ v-on:input
 
 
 Watcher 즉 watch: { } 는 computed property도 감시 가능!
+
+form 관련
+- checkbox가 있는데 같은 name을 share 한다면, then you'll get an array where 체크된 값을 
+요소로 갖는...
+- if you have a single checkbox for a given name value, then you'll get a true or fasle.
+
+
+fetch returns an object
