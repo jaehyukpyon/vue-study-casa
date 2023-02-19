@@ -29,3 +29,14 @@ url이 바뀌면 $route가 변경된다.
 - and therefore, you can add a WATCHER...
 
 
+Vuex is a library for managing global STATE
+STATE?
+- state could simple be translated into DATA
+  - data your application needs
+  - data effects what user sees on the screen
+- you can think of state as reactive data (data which may change, and where such changes then should trigger something on the SCREEN)
+
+mutations?
+- Mutations are clearly defined methods, 
+which have the logic to update the state.
+- And from inside our COMPONENTS, we just trigger those mutations instead of directly manipuating the state like `this.$store.state.counter`;
